@@ -15,43 +15,78 @@
 
 
 
-        <div class="row">
-          <div class="large-4 columns">
-            <div id="welcome-yesterday"></div>
-          </div>
-          <div class="large-4 columns">
-            <div id="welcome-today"></div>
-          </div>
-          <div class="large-4 columns">
-            <div id="welcome-average"></div>
-          </div>
-          <div class="legend">
-            <%= image_tag("/legend.png") %>
-          </div>
 
-          <h1>Add a new product!</h1>
+          <h6>Add a new item!</h6>
           <%= render 'form' %>
           <br />
-          <%= link_to 'Return Home', user_path %>
 
 
+          <div class="row">
+            <div class="medium-10 medium-centered columns">
+              <ul class="medium-block-grid-2">
+                <li>
+                  <div class="thumb">
+                    <%= link_to root_path do %>
+                      <img src="https://i.s-jcrew.com/is/image/jcrew/16252_BL8797_m?$pdp_fs418$">
+                      <div class="text">Categories</div>
+                    <% end %>
+                  </div>
+                </li>
 
+                <li>
+                  <div class="thumb">
+                    <%= link_to root_path do %>
+                      <img src="https://i.s-jcrew.com/is/image/jcrew/94058_KE3981_m?$pdp_fs418$">
+                      <div class="text">Brands</div>
+                    <% end %>
+                  </div>
+                </li>
 
-      </div>
-    </div>
+                <li>
+                  <div class="thumb">
+                    <%= link_to root_path do %>
+                      <img src="https://i.s-jcrew.com/is/image/jcrew/93810_WU3294_m?$pdp_fs418$">
+                      <div class="text">All Products</div>
+                    <% end %>
+                  </div>
+                </li>
+
+                <li>
+                  <div class="thumb">
+                    <%= link_to root_path do %>
+                      <img src="https://i.s-jcrew.com/is/image/jcrew/60763_WW8415_m?$pdp_fs418$">
+                      <div class="text">Latest Review</div>
+                    <% end %>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
   <% else %>
     <div class="row">
       <div class="large-6-columns">
-        hey
-      </div>
-      <div class="large-6-columns">
         <div class="mainquote">
-          "Excellence is an art won by training and habituation.<br>
-          We are what we repeatedly do.<br>
-          Excellence, then, is not an act but a habit."<br>
-          -Aristotle
+          "The man who thinks he can and the man who thinks he can't<br>
+           and the man who thinks he can't<br>
+             <p>  are both right. Which are you?"</p><br>
+          -Henry Ford
         </div>
       </div>
     </div>
   <% end %>
+
+
+
+
+
+
+
+
+
+  <% if signed_in? %>
+  <div id="footer">
+    *You'll need to add a date if you want to use the date functionality.</a>
+  </div>
+  <% end %>
+
 </div>
