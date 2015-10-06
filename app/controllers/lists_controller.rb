@@ -1,6 +1,12 @@
 class ListsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
+  # before_filter :phone_confirmation_redirect
   # before_action :require_permission, only: [:edit, :update, :destroy]
+
+  def index
+    @user = User.find(current_user.id)
+    @items = @user.items
+  end
 
   def create
 

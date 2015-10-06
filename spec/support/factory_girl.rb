@@ -10,4 +10,14 @@ FactoryGirl.define do
     password_confirmation 'password'
   end
 
+  factory :list do
+    sequence(:title) { |n| "This is awesome #{n}" }
+  end
+
+  factory :vote do
+    user
+    review
+    helpful true
+  end
+
 end

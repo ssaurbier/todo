@@ -3,9 +3,6 @@
 <script src="/js/welcome.js"></script>
 <script src="/js/themes/grid-light.js"></script>
 
-
-
-
 <div class="row">
   <% if signed_in? %>
     <div class="welcome-back">
@@ -13,55 +10,36 @@
         Welcome, <%= current_user.first_name %>!
       </div>
 
+      <h6>Add a new item!</h6>
+      <%= render 'form' %>
+      <br />
 
 
 
-          <h6>Add a new item!</h6>
-          <%= render 'form' %>
-          <br />
 
+      <div class="row">
+        <div class="medium-10 medium-centered columns">
+          <ul class="medium-block-grid-2">
+            <li>
+              <div class="thumb">
+                <%= link_to root_path do %>
+                  <img src="https://i.s-jcrew.com/is/image/jcrew/16252_BL8797_m?$pdp_fs418$">
+                  <div class="text">Categories</div>
+                <% end %>
+              </div>
+            </li>
 
-          <div class="row">
-            <div class="medium-10 medium-centered columns">
-              <ul class="medium-block-grid-2">
-                <li>
-                  <div class="thumb">
-                    <%= link_to root_path do %>
-                      <img src="https://i.s-jcrew.com/is/image/jcrew/16252_BL8797_m?$pdp_fs418$">
-                      <div class="text">Categories</div>
-                    <% end %>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="thumb">
-                    <%= link_to root_path do %>
-                      <img src="https://i.s-jcrew.com/is/image/jcrew/94058_KE3981_m?$pdp_fs418$">
-                      <div class="text">Brands</div>
-                    <% end %>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="thumb">
-                    <%= link_to root_path do %>
-                      <img src="https://i.s-jcrew.com/is/image/jcrew/93810_WU3294_m?$pdp_fs418$">
-                      <div class="text">All Products</div>
-                    <% end %>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="thumb">
-                    <%= link_to root_path do %>
-                      <img src="https://i.s-jcrew.com/is/image/jcrew/60763_WW8415_m?$pdp_fs418$">
-                      <div class="text">Latest Review</div>
-                    <% end %>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
+            <li>
+              <div class="thumb">
+                <%= link_to root_path do %>
+                  <img src="https://i.s-jcrew.com/is/image/jcrew/94058_KE3981_m?$pdp_fs418$">
+                  <div class="text">Brands</div>
+                <% end %>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
   <% else %>
     <div class="row">
       <div class="large-6-columns">
