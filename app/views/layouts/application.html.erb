@@ -2,24 +2,19 @@
 <html>
   <head>
     <title>To Do</title>
-    <link rel="icon" type="png" href="http://s18.postimg.org/5vo9ex7px/habitsu_logo.png">
     <link href='//fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
+
   <body>
     <div class="row">
       <div class="small-12 columns">
         <div class="nav">
           <div class="row">
-
-
-
             <div class="small-6 columns">
               <div class="navleft">
-
-
               </div>
             </div>
             <div class="small-6 columns">
@@ -27,9 +22,9 @@
                 <ul class="inline-list right">
 
                   <% if signed_in? %>
-                    <li><div class="navbutton"><%= link_to image_tag("http://www.abc.net.au/res/bundles/2.0.5/images/icon-menu-grey@1x.gif"), user_path(current_user) %></div></li>
+                    <li><div class="navbutton"><%= link_to image_tag("http://www.abc.net.au/res/bundles/2.0.5/images/icon-menu-grey@1x.gif"), lists_path %></div></li>
                     <li><div class="navbutton"><%= link_to image_tag("https://resources.lloydsbank.com/uploadedImages/Business_Resource_Centre/Pages/Guides/Starting_a_Business/icon-graph.png"), user_path(current_user) %></div></li>
-                    <li><div class="navbutton"><%= link_to image_tag("http://economicshub.com.sg/images/faq_icon.png"), edit_user_registration_path %></div></li>
+                    <li><div class="navbutton"><%= link_to image_tag("http://economicshub.com.sg/images/faq_icon.png"), users_path %></div></li>
                     <li><div class="navbutton"><%= link_to image_tag("http://tekeye.biz/wp-content/uploads/2013/09/gear_bw_menu.png"), edit_user_registration_path %></div></li>
                     <li><div class="navbutton"><%= link_to image_tag("https://support.avaya.com/images/mobile/mobile/logoutIconSmall.png"), destroy_user_session_path, :method => :delete, :id => 'user_logout' %></div></li>
                   <% else %>
@@ -42,21 +37,10 @@
           </div>
         </div>
 
+<center> <h1> Errands </h1> </center>
+
         <div class="flashnotice">
-          <% if flash.any? %>
-            <% if alert != nil %>
-              <%= alert %>
-            <% elsif notice.is_a? String %>
-              <%= notice %>
-            <% elsif notice.size == 1 %>
-              <%= notice.first %>
-            <% else %>
-              <% flash[:notice].each do |flash| %>
-                <%= flash %><br />
-              <% end %>
-            <% end %>
-          <% end %>
-        </div>
+
 
         <%= yield %>
 

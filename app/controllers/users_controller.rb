@@ -4,13 +4,23 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    @user = User.find(current_user)
-    @lists = @user.lists
+
+  end
+
+  def create
+    @user = User.new(params)
+    @user.save
   end
 
   def show
     @user = User.find(current_user)
-
   end
 
+
+
+  def list_params
+    params.require(:list).permit(
+      :title, :due_date, :user_id
+    )
+  end
 end

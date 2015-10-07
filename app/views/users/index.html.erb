@@ -10,18 +10,67 @@
         Welcome, <%= current_user.first_name %>!
       </div>
 
-      <h6>Add a new item!</h6>
-      <%= render 'form' %>
-      <br />
+      <div class="row">
+        <div class="small-8 small-centered columns">
+          <hr/>
+          <div class="row">
+            <div class="small-12 columns">
+              <h3 class="text-center">Frequently Asked Questions</h3>
+              <p>
+                <strong>Is this service free?</strong>
+                <br/>
+                Yup, it's free. Normal texting fees do apply based on your plan.
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="small-12 columns">
+              <p>
+                <strong>How Does it work?</strong>
+                <br/>
+                We seed two lists for you to use - "Groceries" and "To Do". If you want to add more,
+                <br/>
+                just visit the lists page (top bar, far left) and add the category in the form.
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="small-12 columns">
+              <p>
+                <strong>How do I add lists and items on the website?</strong>
+                <br/>
+                We seed two lists for you to use - "Groceries" and "To Do". If you want to add more,
+                <br/>
+                just visit the lists page (top bar, far left) and add the list in the form. Items work the same way.
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="small-12 columns">
+              <p>
+                <strong>How do I use the texting functionality?</strong>
+                <br/>
+                This is the real magic. We use a programmatic text service to send you texts, and react to texts you send to update your lists. All from your phone!
+              <p>
+                In your text, just send a text with the list name, item name, and a due date in the format MM/DD/YY, and our servers take care of the rest. To query a list, start with "get" and then the list. To update a list, start with "put."
+                <p>
+                For example, "get groceries" will yield your grocery list. "Put buy shoes to do" would put the item "buy shoes" on your "to do" list. However, we don't have a way to actually create new lists from your phone at this time. Just log in!
+            </div>
+          </div>
+          <div class="row">
+            <div class="small-12 columns">
+              <p>
+                <strong>My phone number is non-US. Can I use this service?</strong>
+                <br/>
+                Sorry, we currently only support US phone numbers.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <ul class="small-block-grid-3 medium-block-grid-4 large-block-grid-5">
-        <% @lists.each do |list| %>
-          <li>
-            <%= user.lists %>
-          </li>
-        <% end %>
-      </ul>
-      
+
+
   <% else %>
     <div class="row">
       <div class="large-6-columns">
@@ -33,12 +82,6 @@
         </div>
       </div>
     </div>
-  <% end %>
-
-  <% if signed_in? %>
-  <div id="footer">
-    *You'll need to add a date if you want to use the date functionality.</a>
-  </div>
   <% end %>
 
 </div>

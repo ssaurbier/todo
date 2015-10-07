@@ -1,0 +1,14 @@
+<script type="text/javascript">
+;(function($) {
+  $(document).ready(function() {
+    $('#submit-button').click(function(e) {
+      e.preventDefault();
+      $.post('/list/'+list_num+'/item', {
+        name: $('#name-field'),
+        due_date: $('#due-date-field')
+      }).done(function(data) {
+        $('#container').append('<p>'+data.name+'</p>');
+      });
+    });
+  });
+})(jQuery);
