@@ -29,7 +29,6 @@ class ListsController < ApplicationController
 
   protected
   def list_params
-            binding.pry
     params.require(:list).permit(:title, :due_date)
   end
 
