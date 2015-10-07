@@ -1,8 +1,5 @@
 class Item < ActiveRecord::Base
-  validates :list, presence: true
-  validates :user, presence: true
   belongs_to :list
-  belongs_to :user
-
-
+  validates :list_id, presence: true
+  validates :name, presence: true
 end

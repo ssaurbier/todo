@@ -2,8 +2,22 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!
   # before_action :require_permission, only: [:destroy]
 
-  def create
+  def index
+    @user = User.find(current_user.id)
+    @items = @user.item
+  end
 
+  def create
+    @item = current_user.item.build(item_params)
+
+    if @item.save
+      @item.update_attribute(:next_ping_time, Time.now)
+      @item.generate_next_ping_time
+      Item.populate_sidekiq
+      head :ok
+    else
+      head :unprocessable_entity
+    end
   end
 
   def destroy
@@ -13,7 +27,7 @@ class ItemsController < ApplicationController
   protected
 
   def item_params
-    params.require(:vote).permit(:name, :category, :due_date)
+    params.require(:item).permit(:name, :list, :due_date)
   end
 
   # def require_permission

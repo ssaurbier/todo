@@ -14,32 +14,14 @@
       <%= render 'form' %>
       <br />
 
-
-
-
-      <div class="row">
-        <div class="medium-10 medium-centered columns">
-          <ul class="medium-block-grid-2">
-            <li>
-              <div class="thumb">
-                <%= link_to root_path do %>
-                  <img src="https://i.s-jcrew.com/is/image/jcrew/16252_BL8797_m?$pdp_fs418$">
-                  <div class="text">Categories</div>
-                <% end %>
-              </div>
-            </li>
-
-            <li>
-              <div class="thumb">
-                <%= link_to root_path do %>
-                  <img src="https://i.s-jcrew.com/is/image/jcrew/94058_KE3981_m?$pdp_fs418$">
-                  <div class="text">Brands</div>
-                <% end %>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <ul class="small-block-grid-3 medium-block-grid-4 large-block-grid-5">
+        <% @lists.each do |list| %>
+          <li>
+            <%= user.lists %>
+          </li>
+        <% end %>
+      </ul>
+      
   <% else %>
     <div class="row">
       <div class="large-6-columns">
@@ -52,14 +34,6 @@
       </div>
     </div>
   <% end %>
-
-
-
-
-
-
-
-
 
   <% if signed_in? %>
   <div id="footer">

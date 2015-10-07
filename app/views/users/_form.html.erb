@@ -2,9 +2,7 @@
 <head>
 
   <script type="text/javascript">
-
   var monthtext=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'];
-
   function populatedropdown(dayfield, monthfield, yearfield){
   var today=new Date()
   var dayfield=document.getElementById(dayfield)
@@ -26,8 +24,6 @@
 
   </script>
 
-
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Untitled Form</title>
 <link rel="stylesheet" type="text/css" href="view.css" media="all">
@@ -43,7 +39,6 @@
 					<div class="form_description">
 		</div>
 			<ul>
-
 					<li id="li_1" >
 		<label class="description" for="element_1">Item Name</label>
 		<div>
@@ -72,23 +67,15 @@
 
     <script type="text/javascript">
 
-    //populatedropdown(id_of_day_select, id_of_month_select, id_of_year_select)
     window.onload=function(){
     populatedropdown("daydropdown", "monthdropdown", "yeardropdown")
     }
     </script>
-
-
-
-
 		</li>
-
 					<li class="buttons">
 			    <input type="hidden" name="form_id" value="1059003" />
-
 				<input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
 		</li>
 			</ul>
 		</form>
-
 </html>
