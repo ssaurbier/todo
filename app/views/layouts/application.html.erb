@@ -40,20 +40,7 @@
 <center> <h1> Errands </h1> </center>
 
         <div class="flashnotice">
-          <% if flash.any? %>
-            <% if alert != nil %>
-              <%= alert %>
-            <% elsif notice.is_a? String %>
-              <%= notice %>
-            <% elsif notice.size == 1 %>
-              <%= notice.first %>
-            <% else %>
-              <% flash[:notice].each do |flash| %>
-                <%= flash %><br />
-              <% end %>
-            <% end %>
-          <% end %>
-        </div>
+
 
         <%= yield %>
 

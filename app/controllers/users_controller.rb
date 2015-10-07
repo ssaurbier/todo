@@ -8,6 +8,8 @@ class UsersController < ApplicationController
   end
 
   def create
+    @user = User.new(params)
+    @user.save
   end
 
   def show

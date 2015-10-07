@@ -1,13 +1,14 @@
-<h6>Add a new list!</h6>
+
+
+<h6>Add a new list <%= current_user.first_name %>!</h6>
 <%= form_for @list do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
   <%= f.label :due_date %>
   <%= f.text_field :due_date %>
+  <%= f.hidden_field :user_id %>
   <%= f.submit class: "button radius" %>
 <% end %>
-
-
 
 <ul class="small-block-grid-3 medium-block-grid-4 large-block-grid-5">
   <% @lists.to_a.each do |list| %>
