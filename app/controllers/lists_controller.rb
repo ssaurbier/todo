@@ -5,16 +5,15 @@ class ListsController < ApplicationController
 
   def index
     @list = List.all
-  end
-
-  def create
+    @user = current_user
     @list = List.new(list_params)
-    @list.user = current_user
+    @list.user = @user
     if @list.save
-      flash[:success] = "Product successfully Added."
+      flash[:success] = "List successfully Added."
       redirect_to root_path
     else
       flash[:warning] = @list.errors.full_messages.join(', ')
+      redirect_to root_path
     end
   end
 
@@ -29,8 +28,9 @@ class ListsController < ApplicationController
   end
 
   protected
-  def item_params
-    params.require(:list).permit(:title, :list, :due_date)
+  def list_params
+            binding.pry
+    params.require(:list).permit(:title, :due_date)
   end
 
   # def require_permission
