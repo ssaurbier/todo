@@ -1,26 +1,28 @@
 class ListsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
+  # before_filter :phone_confirmation_redirect
   # before_action :require_permission, only: [:edit, :update, :destroy]
 
-  def create
+  def index
+    @list = List.find(current_user.id)
+    @items = @user.items
+  end
 
+  def create
   end
 
   def edit
-
   end
 
   def update
-
   end
 
   def destroy
-
   end
 
   protected
-  def review_params
-    params.require(:list).permit(:title, :due_date)
+  def item_params
+    params.require(:list).permit(:title, :list, :due_date)
   end
 
   # def require_permission

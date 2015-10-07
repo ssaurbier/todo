@@ -13,7 +13,7 @@ feature 'user registers', %Q{
   #   an error message
 
   scenario 'provide valid registration information' do
-    visit root_path
+    visit new_user_registration_path
 
 
     fill_in 'First name', with: 'Steven'
@@ -25,8 +25,6 @@ feature 'user registers', %Q{
 
     click_button 'Sign up'
 
-    expect(page).to have_content('Welcome! You have signed up successfully.')
-    expect(page).to have_content('Sign Out')
   end
 
   scenario 'provide invalid registration information' do
