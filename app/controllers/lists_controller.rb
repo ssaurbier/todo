@@ -4,17 +4,25 @@ class ListsController < ApplicationController
   # before_action :require_permission, only: [:edit, :update, :destroy]
 
   def index
-    @list = List.find(current_user.id)
-    @items = @user.items
+    @list = List.all
   end
 
   def create
+    @list = List.new(list_params)
+    @list.user = current_user
+    if @list.save
+      flash[:success] = "Product successfully Added."
+      redirect_to root_path
+    else
+      flash[:warning] = @list.errors.full_messages.join(', ')
+    end
   end
 
   def edit
+    @list = List.find(params[:id])
   end
 
-  def update
+  def show
   end
 
   def destroy

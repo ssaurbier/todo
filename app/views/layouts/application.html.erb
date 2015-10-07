@@ -22,9 +22,9 @@
                 <ul class="inline-list right">
 
                   <% if signed_in? %>
-                    <li><div class="navbutton"><%= link_to image_tag("http://www.abc.net.au/res/bundles/2.0.5/images/icon-menu-grey@1x.gif"), user_path(current_user) %></div></li>
+                    <li><div class="navbutton"><%= link_to image_tag("http://www.abc.net.au/res/bundles/2.0.5/images/icon-menu-grey@1x.gif"), lists_path %></div></li>
                     <li><div class="navbutton"><%= link_to image_tag("https://resources.lloydsbank.com/uploadedImages/Business_Resource_Centre/Pages/Guides/Starting_a_Business/icon-graph.png"), user_path(current_user) %></div></li>
-                    <li><div class="navbutton"><%= link_to image_tag("http://economicshub.com.sg/images/faq_icon.png"), edit_user_registration_path %></div></li>
+                    <li><div class="navbutton"><%= link_to image_tag("http://economicshub.com.sg/images/faq_icon.png"), users_path %></div></li>
                     <li><div class="navbutton"><%= link_to image_tag("http://tekeye.biz/wp-content/uploads/2013/09/gear_bw_menu.png"), edit_user_registration_path %></div></li>
                     <li><div class="navbutton"><%= link_to image_tag("https://support.avaya.com/images/mobile/mobile/logoutIconSmall.png"), destroy_user_session_path, :method => :delete, :id => 'user_logout' %></div></li>
                   <% else %>
