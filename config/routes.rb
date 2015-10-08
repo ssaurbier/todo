@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'users#index'
+  root 'users#show'
   get '/spa', to: 'spa#index'
   devise_for :users
 
