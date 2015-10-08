@@ -3,31 +3,28 @@ class ItemsController < ApplicationController
   # before_action :require_permission, only: [:destroy]
 
   def index
-    @user = User.find(current_user.id)
-    @items = @user.item
+
   end
 
   def create
-    @item = current_user.item.build(item_params)
+    @list = List.find(params[:list_id])
+    @item.list.user_id = current_user.id
+    @list = List.new(item_params)
 
     if @item.save
-      @item.update_attribute(:next_ping_time, Time.now)
-      @item.generate_next_ping_time
-      Item.populate_sidekiq
-      head :ok
+      flash[:success] = "List successfully Added."
+      # render :json => @list
+      redirect_to lists_path
     else
-      head :unprocessable_entity
+      flash[:warning] = @item.errors.full_messages.join(', ')
     end
   end
 
-  def destroy
-
-  end
 
   protected
 
   def item_params
-    params.require(:item).permit(:name, :list, :due_date)
+    params.require(:item).permit(:name, :list, :due_date, :user)
   end
 
   # def require_permission

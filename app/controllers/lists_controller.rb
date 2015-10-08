@@ -3,18 +3,13 @@ class ListsController < ApplicationController
   # before_filter :phone_confirmation_redirect
   # before_action :require_permission, only: [:edit, :update, :destroy]
 
-  # def index
-  #   @user = current_user
-  #   @list = List.new(params.permit(:title, :due_date, :user_id))
-  #   @lists = List.all
-  #
-  # end
-
   def index
   respond_to do |format|
     format.html {
       @lists = List.all
       @list = List.new
+      @items = Item.all
+      @item = Item.new
       render :index
     }
     format.json {
@@ -34,13 +29,16 @@ end
   def new
     if signed_in?
       @list = List.new
+      @item = item
+      @list.item = Item.new
     else
       authenticate_user!
     end
   end
 
   def create
-    @list = List.new(params.permit(:title, :due_date, :user_id))
+    @list = List.new(list_params)
+    @list.user = current_user
     if @list.save
       flash[:success] = "List successfully Added."
       # render :json => @list
@@ -53,12 +51,17 @@ end
 
   def show
     @list = List.find(params[:id])
+    @user = User.find(current_user)
     # render :json => List.find(params[:id])
   end
 
   protected
   def list_params
-    params.require(:list).permit(:title, :due_date, :user_id)
+    params.require(:list).permit(:title, :due_date, :user)
+  end
+
+  def item_params
+    params.require(:item).permit(:name, :due_date, :user, :list)
   end
 
   # def require_permission
