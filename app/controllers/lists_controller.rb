@@ -29,7 +29,7 @@ end
   def new
     if signed_in?
       @list = List.new
-      @item = item
+      @item = item.new
       @list.item = Item.new
     else
       authenticate_user!
@@ -43,7 +43,6 @@ end
       flash[:success] = "List successfully Added."
       # render :json => @list
       redirect_to lists_path
-
     else
       flash[:warning] = @list.errors.full_messages.join(', ')
     end

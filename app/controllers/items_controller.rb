@@ -2,15 +2,9 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!
   # before_action :require_permission, only: [:destroy]
 
-  def index
-
-  end
-
   def create
-    @list = List.find(params[:list_id])
-    @item.list.user_id = current_user.id
-    @list = List.new(item_params)
-
+    # @list = List.find(list_finder)
+    @item = List.find(item_params[:list_id])
     if @item.save
       flash[:success] = "List successfully Added."
       # render :json => @list
@@ -21,8 +15,13 @@ class ItemsController < ApplicationController
   end
 
 
-  protected
+  def destroy
+    @item = Item.find(params[:id])
+    @list = @item.list
+    @item.destroy
+  end
 
+  protected
   def item_params
     params.require(:item).permit(:name, :list, :due_date, :user)
   end
