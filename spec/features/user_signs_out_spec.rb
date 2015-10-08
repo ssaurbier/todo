@@ -17,10 +17,10 @@ feature 'user signs out', %Q{
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password
     click_button 'Log in'
-    expect(page).to have_content('Signed in successfully')
+    expect(page).to have_content('Welcome')
 
     page.find("#user_logout").click
-    expect(page).to have_content('Signed out successfully')
+    expect(page).to have_content('Henry Ford')
   end
 
   scenario 'unauthenticated user attempts to sign out' do

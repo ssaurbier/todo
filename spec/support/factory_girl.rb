@@ -12,6 +12,8 @@ FactoryGirl.define do
 
   factory :list do
     sequence(:title) { |n| "This is awesome #{n}" }
+    due_date 'string'
+    user
   end
 
   factory :vote do
