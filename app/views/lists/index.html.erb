@@ -1,22 +1,64 @@
 
+<div>
 
-<h6>Add a new list <%= current_user.first_name %>!</h6>
-<%= form_for @list do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :due_date %>
-  <%= f.text_field :due_date %>
-  <%= f.hidden_field :user_id %>
-  <%= f.submit class: "button radius" %>
-<% end %>
+<div class="row">
+    <div class="large-6 medium-centered columns">
+      <ul class="inline-list">
+        <li>  <%= form_for @list do |f| %>
+            <%= f.label :title %>
+            <%= f.text_field :title %>
+            <%= f.label :due_date %>
+            <%= f.text_field :due_date %>
+            <%= f.submit class: "button radius" %>
+          <% end %>
+        </li>
+          <li>
+            <br/>
+          </li>
+        <li>  <%= form_for @item do |f| %>
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+          <%= f.label :list %>
+          <%= f.select :list_id, List.all.collect {|list| [list.title, list.id]} %> %>
+          <%= f.label :due_date %>
+          <%= f.text_field :due_date %>
+          <%= f.submit class: "button radius" %>
+        <% end %>
+      </li>
+      </ul>
+    </div>
+  </div>
 
+<div>
+  <ul
+<div>
 
+<div>
+  <ul
+  </ul>
+<div>
 
-
-<ul class="small-block-grid-3 medium-block-grid-4 large-block-grid-5">
-  <% @lists.to_a.each do |list| %>
-    <li>
-      <%= user.lists %>
-    </li>
-  <% end %>
-</ul>
+  <div class="row">
+  <div class="medium-10 medium-centered columns">
+    <ul class="medium-block-grid-2">
+      <li>
+        <div class="small-block-grid-1">
+          <% @lists.each do |list| %>
+            <li>
+              <%= list.title %>
+            </li>
+          <% end %>
+        </div>
+      </li>
+      <li>
+        <div class="small-block-grid-1">
+          <% @items.each do |item| %>
+            <li>
+              <%= item.name %>
+            </li>
+          <% end %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -11,13 +11,17 @@ FactoryGirl.define do
   end
 
   factory :list do
-    sequence(:title) { |n| "This is awesome #{n}" }
+    sequence(:title) { |n| "Groceries #{n}" }
+    due_date 'string'
+    user
   end
 
-  factory :vote do
+  factory :item do
+    sequence(:name) { |n| "item name #{n}" }
+    due_date 'string'
     user
-    review
-    helpful true
+    list
+
   end
 
 end
