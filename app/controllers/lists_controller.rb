@@ -16,7 +16,6 @@ class ListsController < ApplicationController
       @list = List.new
       @items = Item.all
       @item = Item.new
-      binding.pry
       render :index
     }
     format.json {
