@@ -5,13 +5,13 @@ class ItemsController < ApplicationController
   def create
     item_params[:list] = List.find_by(title: item_params[:list_id])
     @item = Item.new(item_params)
-    # @item.user = current_user
-    # list_id = List.find(params[:list_id])
-    list = List.find_by(title: list)
+    @user = current_user
+    @list = List.find(item_params[:list_id].to_i)
+    list = List.find_by(title: @list.title)
     @item.list = list
+    @item[:user_id] = @user.id
     if @item.save
       flash[:success] = "List successfully Added."
-      # render :json => @list
       redirect_to lists_path
     else
       flash[:warning] = @item.errors.full_messages.join(', ')

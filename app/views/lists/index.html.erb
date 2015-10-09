@@ -18,8 +18,8 @@
         <li>  <%= form_for @item do |f| %>
           <%= f.label :name %>
           <%= f.text_field :name %>
-          <%= f.label :list_id %>
-          <%= f.text_field :list %>
+          <%= f.label :list %>
+          <%= f.select :list_id, List.all.collect {|list| [list.title, list.id]} %> %>
           <%= f.label :due_date %>
           <%= f.text_field :due_date %>
           <%= f.submit class: "button radius" %>
@@ -30,11 +30,35 @@
   </div>
 
 <div>
-  <ul class="small-block-grid-1">
-    <% @lists.to_a.each do |list| %>
-      <li>
-        <%= list.title %>
-      </li>
-    <% end %>
+  <ul
+<div>
+
+<div>
+  <ul
   </ul>
 <div>
+
+  <div class="row">
+  <div class="medium-10 medium-centered columns">
+    <ul class="medium-block-grid-2">
+      <li>
+        <div class="small-block-grid-1">
+          <% @lists.each do |list| %>
+            <li>
+              <%= list.title %>
+            </li>
+          <% end %>
+        </div>
+      </li>
+      <li>
+        <div class="small-block-grid-1">
+          <% @items.each do |item| %>
+            <li>
+              <%= item.name %>
+            </li>
+          <% end %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
