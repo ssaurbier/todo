@@ -39,19 +39,20 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     @list.user = current_user
-    if @list.save
-      flash[:success] = "List successfully Added."
-      # render :json => @list
-      redirect_to lists_path
-    else
-      flash[:warning] = @list.errors.full_messages.join(', ')
+    respond_to do |format|
+      if @list.save
+        format.json { render json: @list, status: :created}
+        flash[:success] = "List successfully Added."
+      else
+        format.json { render json: @list.errors, status: :unprocessable_entity }
+        flash[:warning] = @list.errors.full_messages.join(', ')
+      end
     end
   end
 
   def show
     @list = List.find(params[:id])
     @user = User.find(current_user)
-    # render :json => List.find(params[:id])
   end
 
   protected

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'users#show'
   get '/spa', to: 'spa#index'
+  resources :entries, defaults: { format: 'json' }
+
   devise_for :users
 
   resources :users do
