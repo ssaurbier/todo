@@ -3,9 +3,15 @@ class ListsController < ApplicationController
   # before_filter :phone_confirmation_redirect
   # before_action :require_permission, only: [:edit, :update, :destroy]
 
+
+  def index
+      @clubs = Club.where(id: params[:ids])
+  end
+
   def index
   respond_to do |format|
     format.html {
+      @user = current_user
       @lists = List.all
       @list = List.new
       @items = Item.all
