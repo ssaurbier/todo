@@ -23,22 +23,23 @@ $(document).ready(function(){
     var form = $(this);
     var name = $('#item_name').val();
 		var listId = $('#item_list_id').val();
-
+		var dueDate = $('#item_due_date').val();
     $.ajax({
-      url: '/lists',
-      method: form.attr('method'),
+			url: '/lists/'+listId+'/items',
+      method: "POST",
       data: {
         "item": {
         "name": name,
-				"listId": listId,
+				"list_id": listId,
+				"due_date": dueDate
         }
       },
       dataType: "json",
       success: function(data) {
         console.log(data);
-				var div = $('div.items-holder')
-			  var title =  '<div class="inner-1">'+data.name+'</div><br>';
-        div.append(name);
+				var div = $('div.items-holder');
+			  var item =  '<div class="inner-1" list="'+data.listId+'" style="display: block;">'>+data.name+'</div><br>';
+        div.append(item);
         $(':text').val('');
       },
       error: function(){
@@ -46,10 +47,6 @@ $(document).ready(function(){
       }
     });
   });
-
-
-//
-
 
 	$('#new_list').on('submit', function(event){
 		event.preventDefault();
@@ -77,11 +74,6 @@ $(document).ready(function(){
 			}
 		});
 	});
-
-
-
-
-
 
 	$(document).ready(function(){
 		$(".titles-holder .inner-1").css("cursor","pointer");

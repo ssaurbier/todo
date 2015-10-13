@@ -15,16 +15,11 @@ class ListsController < ApplicationController
     format.json {
       render :json => {
         list: List.all,
-        user: current_user
+
       }
     }
     end
   end
-
-  def edit
-    @list = List.find(params[:id])
-  end
-
 
   def new
     if signed_in?
@@ -48,6 +43,14 @@ class ListsController < ApplicationController
         flash[:warning] = @list.errors.full_messages.join(', ')
       end
     end
+  end
+
+  def destroy
+    @user = current_user
+    @product = Product.find(params[:product_id])
+    Review.find(params[:id]).destroy
+    flash[:success] = 'Review Deleted'
+    redirect_to product_path(@product)
   end
 
   def show
