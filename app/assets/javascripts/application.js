@@ -17,6 +17,8 @@
 
 $(function(){ $(document).foundation(); });
 
+// add list
+
 $(document).ready(function(){
   $('#new_item').on('submit', function(event){
     event.preventDefault();
@@ -47,6 +49,9 @@ $(document).ready(function(){
       }
     });
   });
+
+
+// add item
 
 	$('#new_list').on('submit', function(event){
 		event.preventDefault();
