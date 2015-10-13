@@ -1,3 +1,5 @@
+
+
 class ItemsController < ApplicationController
   before_action :authenticate_user!
   # before_action :require_permission, only: [:destroy]
@@ -10,11 +12,14 @@ class ItemsController < ApplicationController
     list = List.find_by(title: @list.title)
     @item.list = list
     @item[:user_id] = @user.id
+    respond_to do |format|
     if @item.save
-      flash[:success] = "List successfully Added."
-      redirect_to lists_path
-    else
-      flash[:warning] = @item.errors.full_messages.join(', ')
+        format.json { render json: @item, status: :created}
+        flash[:success] = "List successfully Added."
+      else
+        format.json { render json: @item.errors, status: :unprocessable_entity }
+        flash[:warning] = @item.errors.full_messages.join(', ')
+      end
     end
   end
 

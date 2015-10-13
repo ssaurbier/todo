@@ -3,6 +3,7 @@ class List < ActiveRecord::Base
   has_many :items
 
   validates :title, presence: true
+  validates :title, uniqueness: true
   validates :user_id, presence: true
 
 end

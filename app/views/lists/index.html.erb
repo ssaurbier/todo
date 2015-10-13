@@ -7,8 +7,6 @@
         <li>  <%= form_for @list do |f| %>
             <%= f.label :title %>
             <%= f.text_field :title %>
-            <%= f.label :due_date %>
-            <%= f.date_field :due_date %>
             <%= f.submit class: "button radius" %>
           <% end %>
         </li>
@@ -38,10 +36,7 @@
           <% @lists.where(user_id:current_user.id).sort_by{|e| e[:due_date]}.each do |list| %>
           <% strDivInner = '<div class="inner-1" id="'+list.id.to_s+'">' %>
             <%= strDivInner.html_safe %>
-              <%= list.due_date %>
-              <% if list.due_date != '' %>
-              <%= '<br/>'.html_safe %>
-              <% end %>
+              <%= check_box_tag(:list, list.title) %>
               <%= list.title %>
             </div><br/>
           <% end %>
@@ -54,10 +49,6 @@
           <% @items.where(user_id:current_user.id).sort_by{|e| e[:due_date]}.each do |item| %>
           <% strDivInnerItem = '<div class="inner-1" list="'+item.list_id.to_s+'">' %>
             <%= strDivInnerItem.html_safe %>
-              <%= item.due_date %>
-              <% if item.due_date != '' %>
-              <%= '<br/>'.html_safe %>
-              <% end %>
               <%= item.name %>
             </div><br/>
           <% end %>
