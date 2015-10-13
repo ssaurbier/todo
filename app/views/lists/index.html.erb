@@ -27,6 +27,8 @@
     </div>
   </div>
 
+  <center><h4> Items by List </h4></center>
+  <br>
   <div class="row">
   <div class="medium-10 medium-centered columns">
     <ul class="medium-block-grid-2">
@@ -46,7 +48,7 @@
       <li>
         <div class="small-block-grid-1 items">
           <div class="items-holder">
-          <% @items.where(user_id:current_user.id).sort_by{|e| e[:due_date]}.each do |item| %>
+          <% @items.where(user_id:current_user.id).each do |item| %>
           <% strDivInnerItem = '<div class="inner-1" list="'+item.list_id.to_s+'">' %>
             <%= strDivInnerItem.html_safe %>
               <%= item.name %>
@@ -57,4 +59,45 @@
       </li>
     </ul>
   </div>
+
+  <center><h4> Items by Day </h4></center>
+  <br>
+  <div class="row">
+  <div class="medium-10 medium-centered columns">
+    <ul class="medium-block-grid-2">
+      <li>
+        <div class="small-block-grid-1 title">
+          <div class="days-holder">
+            <div class="inner-1" id="Today">
+              <% strDivInner = '<div class="inner-1" id="'+Date.today.to_s+'">' %>
+              Today<br>
+            </div><br/>
+            <div class="inner-1" id="2015-10-14">
+              <% strDivInner = '<div class="inner-1" id="'+Date.tomorrow.to_s+'">' %>
+              Tomorrow<br>
+            </div><br/>
+            <div class="inner-1" id="Next Day">
+              <% strDivInner = '<div class="inner-1" id="'+Date.tomorrow.to_s+'">' %>
+              Day After Tomorrow<br>
+            </div><br/>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="small-block-grid-1 items">
+          <div class="days-items-holder">
+            <% @items.where(user_id:current_user.id).each do |item| %>
+              <% if @item.due_date != nil %>
+                <% strDivInnerItem = '<div class="inner-1" list="'+@item.due_date.to_s+'">' %>
+                <%= strDivInnerItem.html_safe %>
+                <%= item.name %>
+              </div><br/>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
 </div>

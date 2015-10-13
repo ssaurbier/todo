@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
     list = List.find_by(title: @list.title)
     @item.list = list
     @item[:user_id] = @user.id
+    @item[:due_date] = item.due_date  
     respond_to do |format|
     if @item.save
         format.json { render json: @item, status: :created}
