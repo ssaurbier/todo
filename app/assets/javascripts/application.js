@@ -54,7 +54,7 @@ $(document).ready(function(){
 		var title = $('#list_title').val();
 
 		$.ajax({
-			url: form.attr('action'),
+			url: "form.attr('action')",
 			method: form.attr('method'),
 			data: {
 				"list": {
