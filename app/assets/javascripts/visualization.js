@@ -1,38 +1,25 @@
 $(function () {
-  var lists = ["errands", "To Do"];
-  var items = [50, 1];
-
-  $.ajax({
-    method: "GET",
-    url: "/items"
-    dataType: "json"
-  })
-
-  .done(function(data){
-  
-
-
-  });
-
     $('#container').highcharts({
-
         chart: {
             type: 'bar'
         },
         title: {
-            text: 'Fruit Consumption'
+            text: 'Your Activity'
         },
         xAxis: {
-            categories: lists
+            categories: ['Today', 'Tomorrow']
         },
         yAxis: {
             title: {
-                text: 'Fruit eaten'
+                text: 'Chores to complete'
             }
         },
         series: [{
-            name: 'Chores',
-            data: items
+            name: 'Errands',
+            data: [1, 4]
+        }, {
+            name: 'Code Projects',
+            data: [5, 3]
         }]
     });
 });
