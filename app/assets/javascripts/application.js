@@ -59,7 +59,7 @@ $(document).ready(function(){
 		var title = $('#list_title').val();
 
 		$.ajax({
-			url: form.attr('action'),
+			url: "form.attr('action')",
 			method: form.attr('method'),
 			data: {
 				"list": {
@@ -75,7 +75,7 @@ $(document).ready(function(){
 				$(':text').val('');
 			},
 			error: function(){
-				alert("You made that list already!");
+				alert("Error!");
 			}
 		});
 	});
