@@ -22,6 +22,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pry'
 gem 'simple_form'
+gem 'chronic'
+gem 'tickle'
+gem 'stamp'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

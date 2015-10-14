@@ -12,12 +12,6 @@ class ListsController < ApplicationController
       @item = Item.new
       render :index
     }
-    format.json {
-      render :json => {
-        list: List.all,
-
-      }
-    }
     end
   end
 
