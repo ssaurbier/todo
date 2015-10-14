@@ -95,7 +95,7 @@ $(document).ready(function(){
 		$(".days-items-holder .inner-1").css("display","none");
 		$(".days-holder .inner-1").click(function(){
 		   $(".days-items-holder .inner-1").css("display","none");
-		$(".days-item-holder .inner-1[list='"+$(this).attr('id')+"']").css("display","block");
+		$(".days-item-holder .inner-1[id='"+$(this).attr('id')+"']").css("display","block");
 		});
 	});
 
