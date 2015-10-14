@@ -70,7 +70,7 @@ $(document).ready(function(){
 				$(':text').val('');
 			},
 			error: function(){
-				alert("You made that list already!");
+				alert("Error!");
 			}
 		});
 	});
