@@ -69,14 +69,13 @@
         <div class="small-block-grid-1 title">
           <div class="days-holder">
             <% strDivInner = '<div class="inner-1" id="'+Date.today.to_s+'">' %>
-              Today<br>
+              <% '<div class="inner-1" id="'+Date.today.to_s+'">' %>
+              Today <br>
             </div><br/>
-            <div class="inner-1" id="tomorrow">
-              <% strDivInner = '<div class="inner-1" id="'+Date.tomorrow.to_s+'">' %>
+            <div class="inner-1" id="2015-10-15">
               Tomorrow<br>
             </div><br/>
-            <div class="inner-1" id="Next Day">
-              <% strDivInner = '<div class="inner-1" id="'+Date.tomorrow.to_s+'">' %>
+            <div class="inner-1" id="2015-10-16">
               Day After Tomorrow<br>
             </div><br/>
           </div>
