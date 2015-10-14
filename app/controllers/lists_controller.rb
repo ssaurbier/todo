@@ -15,6 +15,19 @@ class ListsController < ApplicationController
     end
   end
 
+  def index
+    @lists = List.all
+    @list = List.new
+    @items = Item.all
+    @item = Item.new
+    respond_to do |format|
+      format.html
+      format.json do
+        render json: 2
+      end
+    end
+  end
+
   def new
     if signed_in?
       @list = List.new
