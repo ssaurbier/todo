@@ -49,6 +49,7 @@
           <% @items.where(user_id:current_user.id).sort_by{|e| e[:due_date]}.each do |item| %>
           <% strDivInnerItem = '<div class="inner-1" list="'+item.list_id.to_s+'">' %>
             <%= strDivInnerItem.html_safe %>
+              <%= check_box_tag(:item, item.name) %>
               <%= item.name %>
             </div><br/>
           <% end %>
