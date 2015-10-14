@@ -82,20 +82,20 @@ $(document).ready(function(){
 
 // Handler for making appropriate items appear by list on click
 
-	$(document).ready(function(){
-		$(".titles-holder .inner-1").css("cursor","pointer");
-		$(".items-holder .inner-1").css("display","none");
-		$(".titles-holder .inner-1").click(function(){
-		   $(".items-holder .inner-1").css("display","none");
-		$(".items-holder .inner-1[list='"+$(this).attr('id')+"']").css("display","block");
-		});
-
-    $(".days-holder .inner-1").css("cursor","pointer");
-		$(".days-items-holder .inner-1").css("display","none");
-		$(".days-holder .inner-1").click(function(){
-		   $(".days-items-holder .inner-1").css("display","none");
-		$(".days-item-holder .inner-1[list='"+$(this).attr('id')+"']").css("display","block");
-		});
-	});
+	// $(document).ready(function(){
+	// 	$(".titles-holder .inner-1").css("cursor","pointer");
+	// 	$(".items-holder .inner-1").css("display","none");
+	// 	$(".titles-holder .inner-1").click(function(){
+	// 	   $(".items-holder .inner-1").css("display","none");
+	// 	$(".items-holder .inner-1[list='"+$(this).attr('id')+"']").css("display","block");
+	// 	});
+  //
+  //   $(".days-holder .inner-1").css("cursor","pointer");
+	// 	$(".days-items-holder .inner-1").css("display","none");
+	// 	$(".days-holder .inner-1").click(function(){
+	// 	   $(".days-items-holder .inner-1").css("display","none");
+	// 	$(".days-item-holder .inner-1[list='"+$(this).attr('id')+"']").css("display","block");
+	// 	});
+	// });
 
 });
