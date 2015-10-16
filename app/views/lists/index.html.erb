@@ -48,7 +48,7 @@
           <% @items.where(user_id:current_user.id).each do |item| %>
           <% strDivInnerItem = '<div class="inner-1" list="'+item.list_id.to_s+'">' %>
             <%= strDivInnerItem.html_safe %>
-              <%= check_box_tag(:item, item.name) %>
+              <%= check_box_tag(item.name, item.id { onclick: redirect_to items} ) %>
               <%= item.name %>
             </div><br/>
           <% end %>

@@ -3,17 +3,6 @@ class ListsController < ApplicationController
   # before_filter :phone_confirmation_redirect
   # before_action :require_permission, only: [:edit, :update, :destroy]
 
-  def index
-  respond_to do |format|
-    format.html {
-      @lists = List.all
-      @list = List.new
-      @items = Item.all
-      @item = Item.new
-      render :index
-    }
-    end
-  end
 
   def index
     @lists = List.all
@@ -52,13 +41,6 @@ class ListsController < ApplicationController
     end
   end
 
-  def destroy
-    @user = current_user
-    @product = Product.find(params[:product_id])
-    Review.find(params[:id]).destroy
-    flash[:success] = 'Review Deleted'
-    redirect_to product_path(@product)
-  end
 
   def show
     @list = List.find(params[:id])
