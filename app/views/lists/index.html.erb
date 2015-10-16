@@ -78,12 +78,13 @@
         <div class="small-block-grid-1 items">
           <div class="days-items-holder">
             <% @items.where(user_id:current_user.id).each do |item| %>
-              <% if @item.due_date != nil %>
-                <% strDivInnerItem = '<div class="inner-1" id="'+@item.due_date.to_s+'">' %>
+              <% if item.due_date != nil && item.due_date < Date.tomorrow + 1 %>
+                <% strDivInnerItem = '<div class="inner-1" list="'+item.due_date.to_s+'">' %>
                 <%= strDivInnerItem.html_safe %>
                 <%= item.name %>
-              </div><br/>
               <% end %>
+              </div><br/>
+
             <% end %>
           </div>
         </div>
