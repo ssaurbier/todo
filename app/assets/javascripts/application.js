@@ -42,8 +42,10 @@ $(document).ready(function(){
       success: function(data) {
         console.log(data);
 				var div = $('div.items-holder');
+        var divDay = $('div.days-items-holder');
 			  var item =  '<div class="inner-1" list="'+data.listId+'" style="display: block;">'>+data.name+'</div><br>';
         div.append(item);
+        divDay.append(item);
         $(':text').val('');
       },
       error: function(){
@@ -92,8 +94,8 @@ $(document).ready(function(){
     $(".days-holder .inner-1").css("cursor","pointer");
 		$(".days-items-holder .inner-1").css("display","none");
 		$(".days-holder .inner-1").click(function(){
-		   $(".days-items-holder .inner-1").css("display","block");
-		$(".days-item-holder .inner-1[list='"+$(this).attr('id')+"']").css("display","block");
+		   $(".days-items-holder .inner-1").css("display","none");
+		$(".days-items-holder .inner-1[list='"+$(this).attr('id')+"']").css("display","block");
 		});
 	});
 
