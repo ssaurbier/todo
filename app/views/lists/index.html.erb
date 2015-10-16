@@ -46,7 +46,7 @@
         <div class="small-block-grid-1 items">
           <div class="items-holder">
           <% @items.where(user_id:current_user.id).each do |item| %>
-          <% strDivInnerItem = '<div class="inner-1" list="'+item.list_id.to_s+'">' %>
+          <% strDivInnerItem = '<div class="inner-1" list=" '+item.list_id.to_s+'">' %>
             <%= strDivInnerItem.html_safe %>
               <%= check_box_tag(:item, item.name) %>
               <%= item.name %>
@@ -76,14 +76,14 @@
       </li>
       <li>
         <div class="small-block-grid-1 items">
-          <div class="days-items-holder">
+          <div class="days-items-holder"> 5464564
             <% @items.where(user_id:current_user.id).each do |item| %>
-              <% if @item.due_date != nil %>
-                <% strDivInnerItem = '<div class="inner-1" id="'+@item.due_date.to_s+'">' %>
+
+                <% strDivInnerItem = '<div class="inner-1" id="'+@item.due_date.to_s+'"> hello!' %>
                 <%= strDivInnerItem.html_safe %>
-                <%= item.name %>
+                <%= item.name %> hello!
               </div><br/>
-              <% end %>
+
             <% end %>
           </div>
         </div>
