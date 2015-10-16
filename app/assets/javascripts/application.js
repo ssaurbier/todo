@@ -51,10 +51,7 @@ $(document).ready(function(){
       }
     });
   });
-
-
 // add list
-
 	$('#new_list').on('submit', function(event){
 		event.preventDefault();
 		var form = $(this);
@@ -95,8 +92,8 @@ $(document).ready(function(){
     $(".days-holder .inner-1").css("cursor","pointer");
 		$(".days-items-holder .inner-1").css("display","none");
 		$(".days-holder .inner-1").click(function(){
-		   $(".days-items-holder .inner-1").css("display","none");
-		$(".days-item-holder .inner-1[id='"+$(this).attr('id')+"']").css("display","block");
+		   $(".days-items-holder .inner-1").css("display","block");
+		$(".days-item-holder .inner-1[list='"+$(this).attr('id')+"']").css("display","block");
 		});
 	});
 
