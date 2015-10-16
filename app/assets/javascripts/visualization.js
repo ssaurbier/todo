@@ -16,10 +16,10 @@ $(function () {
         },
         series: [{
             name: 'Errands',
-            data: [1, 4]
+            data: [1, 3]
         }, {
             name: 'Code Projects',
-            data: [5, 3]
+            data: [2, 1]
         }]
     });
 });
