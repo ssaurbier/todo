@@ -13,11 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require highcharts/highcharts.js
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
 
-// add list
+// add item
 
 $(document).ready(function(){
   $('#new_item').on('submit', function(event){
@@ -26,6 +27,7 @@ $(document).ready(function(){
     var name = $('#item_name').val();
 		var listId = $('#item_list_id').val();
 		var dueDate = $('#item_due_date').val();
+
     $.ajax({
 			url: '/lists/'+listId+'/items',
       method: "POST",
@@ -40,8 +42,10 @@ $(document).ready(function(){
       success: function(data) {
         console.log(data);
 				var div = $('div.items-holder');
+        var divDay = $('div.days-items-holder');
 			  var item =  '<div class="inner-1" list="'+data.listId+'" style="display: block;">'>+data.name+'</div><br>';
         div.append(item);
+        divDay.append(item);
         $(':text').val('');
       },
       error: function(){
@@ -49,10 +53,7 @@ $(document).ready(function(){
       }
     });
   });
-
-
-// add item
-
+// add list
 	$('#new_list').on('submit', function(event){
 		event.preventDefault();
 		var form = $(this);
@@ -75,10 +76,12 @@ $(document).ready(function(){
 				$(':text').val('');
 			},
 			error: function(){
-				alert("You made that list already!");
+				alert("Error!");
 			}
 		});
 	});
+
+// Handler for making appropriate items appear by list on click
 
 	$(document).ready(function(){
 		$(".titles-holder .inner-1").css("cursor","pointer");
@@ -87,10 +90,13 @@ $(document).ready(function(){
 		   $(".items-holder .inner-1").css("display","none");
 		$(".items-holder .inner-1[list='"+$(this).attr('id')+"']").css("display","block");
 		});
+
+    $(".days-holder .inner-1").css("cursor","pointer");
+		$(".days-items-holder .inner-1").css("display","none");
+		$(".days-holder .inner-1").click(function(){
+		   $(".days-items-holder .inner-1").css("display","none");
+		$(".days-items-holder .inner-1[list='"+$(this).attr('id')+"']").css("display","block");
+		});
 	});
 
 });
-
-
-
-// Handler for making appropriate items appear by list on click

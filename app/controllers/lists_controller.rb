@@ -12,12 +12,19 @@ class ListsController < ApplicationController
       @item = Item.new
       render :index
     }
-    format.json {
-      render :json => {
-        list: List.all,
+    end
+  end
 
-      }
-    }
+  def index
+    @lists = List.all
+    @list = List.new
+    @items = Item.all
+    @item = Item.new
+    respond_to do |format|
+      format.html
+      format.json do
+        render json: 2
+      end
     end
   end
 
